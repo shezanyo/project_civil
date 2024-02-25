@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.dashboard">
+   <children>
+      <BorderPane fx:id="bp" prefHeight="800.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #f2f2f9;" BorderPane.alignment="CENTER">
+               <children>
+                  <MFXButton depthLevel="LEVEL0" layoutX="2.0" layoutY="110.0" onMouseClicked="#button1" prefHeight="48.0" prefWidth="260.0" rippleAnimateBackground="false" rippleBackgroundOpacity="30.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="Dashboard" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></MFXButton>
+                  <MFXButton layoutX="98.0" layoutY="196.0" onMouseClicked="#button2" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="1st feat" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></MFXButton>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: 000000;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="dashName" layoutX="26.0" layoutY="26.0" prefHeight="30.0" prefWidth="319.0">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

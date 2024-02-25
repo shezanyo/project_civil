@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.login">
+   <children>
+      <Label fx:id="loginInfo" layoutX="143.0" layoutY="327.0" />
+      <MFXButton fx:id="loginButton" layoutX="355.0" layoutY="253.0" onAction="#loginButtonAction" prefHeight="34.0" prefWidth="83.0" text="login" />
+      <MFXTextField fx:id="userId" layoutX="278.0" layoutY="105.0" prefHeight="1.0" prefWidth="244.0" />
+      <MFXPasswordField fx:id="passId" layoutX="274.0" layoutY="176.0" prefHeight="34.0" prefWidth="244.0" />
+      <MFXButton layoutX="370.0" layoutY="315.0" onAction="#signUpButton" text="signup" />
+   </children>
+</AnchorPane>
