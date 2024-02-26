@@ -1,0 +1,29 @@
+/* Apply styles to the entire table */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color:  #e5e6f6;
+}
+
+/* Apply styles to the table header */
+.table-view .column-header-background {
+    -fx-background-color:  #e5e6f6;
+    -fx-border-color:  #e5e6f6;
+    -fx-border-width: 1px;
+}
+
+/* Apply styles to table header cells */
+.table-view .column-header {
+    -fx-background-color:  #e5e6f6;
+    -fx-border-color:  #e5e6f6;
+}
+
+/* Apply styles to table cells */
+.table-cell {
+    -fx-border-color:  #e5e6f6;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-font-size: 18px;
+}
+
+
