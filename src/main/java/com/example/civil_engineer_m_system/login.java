@@ -11,7 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -26,44 +30,38 @@ public class login {
     Stage stage;
     Parent root;
 
-    public void loginButtonAction(ActionEvent e){
-        if(userId.getText().isBlank() == false && passId.getText().isBlank() == false){
-            //loginButton();
-            databaseConnection connectNow = new databaseConnection();
-            Connection connectDB = connectNow.getConnection();
+    public void loginButtonAction(ActionEvent e) {
+        if (userId.getText().isBlank() == false && passId.getText().isBlank() == false) {
+            String username = userId.getText();
+            String password = passId.getText();
 
-            String verifyLogin ="SELECT count(1) FROM new_table WHERE id= " +userId.getText()+ " AND pass ='" +passId.getText()+ "'";
+            // Communicate with the server to validate credentials
+            boolean authenticated = communicateWithServer(username, password);
 
-            try{
-                Statement statement=connectDB.createStatement();
-                ResultSet queryResult=statement.executeQuery(verifyLogin);
+            if (authenticated) {
+                // Load the dashboard FXML file
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+                    Parent root = loader.load();
 
-                while(queryResult.next()){
-                    if(queryResult.getInt(1)==1){
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
-                        root = loader.load();
-                        dashboard dashboardController = loader.getController();
-                        dashboardController.setUId(Integer.parseInt((userId.getText())));
-                        //System.out.println(Integer.parseInt((userId.getText())));
-                        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                        Scene scene = new Scene(root);
-                        stage.setTitle("Dash");
-                        stage.setScene(scene);
-                        stage.show();
-                    }
-                    else{
-                        loginInfo.setText("wrong cred");
-                    }
+                    // Access the controller of the dashboard if you need to pass data
+                    dashboard dashboardController = loader.getController();
+                    dashboardController.initializeData(username); // Example: Passing the username
 
+                    Stage stage = (Stage) userId.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                    // Handle the exception (e.g., show an error dialog)
                 }
-            }catch (Exception ex){
-                ex.printStackTrace();
+            } else {
+                // Show error message
+                System.out.println("Authentication failed. Please check your credentials.");
             }
         }
-        else{
-            loginInfo.setText("fail");
-        }
     }
+
+
     public  void signUpButton(ActionEvent e) throws IOException {
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         root = FXMLLoader.load(this.getClass().getResource("signup.fxml"));
@@ -71,6 +69,33 @@ public class login {
         stage.setTitle("Dash");
         stage.setScene(scene);
         stage.show();
+    }
+
+    private boolean communicateWithServer(String username, String password) {
+        // Replace this with your actual communication logic
+        // For example, you might use sockets to communicate with the server.
+        // Here, we're using the Client class as an example.
+
+        boolean authenticated = false;
+        try (Socket socket = new Socket("localhost", 12345);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Send authentication request to the server
+            out.println("AUTHENTICATE");
+            out.println(username);
+            out.println(password);
+
+            // Receive authentication result from the server
+            String response = in.readLine();
+            authenticated = "AUTH_SUCCESS".equals(response);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Consider handling this more gracefully in a real application
+        }
+
+        return authenticated;
     }
 
 }

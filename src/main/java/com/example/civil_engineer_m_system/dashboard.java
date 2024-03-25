@@ -24,18 +24,13 @@ public class dashboard {
     @FXML
     private Label dashName;
 
-    private int uId;
 
-    public void setUId(int uId) {
-        this.uId=uId;
-
+    public void initializeData(String username) {
+            dashName.setText("Welcome, " + username + "!");
+        // Add any other initialization logic for the dashboard
     }
 
-    public void initialize() {
-        loadDashName();
-    }
-
-    private void loadDashName(){
+    /*private void loadDashName(){
 
         databaseConnection connectNow = new databaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -53,7 +48,7 @@ public class dashboard {
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
+    }*/
 
 
     @FXML
@@ -62,8 +57,14 @@ public class dashboard {
     }
     @FXML
     void button2(MouseEvent event) throws IOException {
-        loadpage("test");
+        loadpage("addTable");
     }
+    @FXML
+    void button3(MouseEvent event) throws IOException {
+        loadpage("todoList");
+    }
+
+
     private void loadpage(String page) throws IOException {
         Parent root = null;
 

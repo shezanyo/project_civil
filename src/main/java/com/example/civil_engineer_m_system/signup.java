@@ -28,7 +28,7 @@ public class signup {
 
     public void signupButtonAction(ActionEvent e){
 
-            databaseConnection connectNow = new databaseConnection();
+            /*databaseConnection connectNow = new databaseConnection();
             Connection connectDB = connectNow.getConnection();
 
             String engId=engIdTextfield.getText();
@@ -48,7 +48,7 @@ public class signup {
                 errorMsg.setText("set man");
             }catch (Exception ex){
                 ex.printStackTrace();
-            }
+            }*/
 
     }
     public void backButton(ActionEvent e) throws IOException {
