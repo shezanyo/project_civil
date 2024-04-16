@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="710.0" prefWidth="1186.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.addTable">
    <children>
-      <MFXLegacyTableView layoutX="24.0" layoutY="23.0" prefHeight="391.0" prefWidth="739.0" stylesheets="@../../../CSS/dashboard.css">
+      <MFXLegacyTableView fx:id="tableView" layoutX="24.0" layoutY="23.0" prefHeight="391.0" prefWidth="739.0" stylesheets="@../../../CSS/dashboard.css">
          <columns>
             <TableColumn fx:id="itemcol" prefWidth="203.0" text="Item" />
             <TableColumn fx:id="quantitycol" minWidth="0.0" prefWidth="231.0" text="quantity" />
@@ -18,6 +18,6 @@
       <MFXTextField fx:id="itement" layoutX="24.0" layoutY="445.0" prefHeight="35.0" prefWidth="323.0" />
       <MFXTextField fx:id="priceent" layoutX="24.0" layoutY="589.0" prefHeight="35.0" prefWidth="323.0" />
       <MFXTextField fx:id="quantityent" layoutX="24.0" layoutY="521.0" prefHeight="35.0" prefWidth="323.0" />
-      <MFXButton layoutX="467.0" layoutY="512.0" prefHeight="67.0" prefWidth="108.0" />
+      <MFXButton layoutX="467.0" layoutY="512.0" onAction="#addItemToDatabase" prefHeight="67.0" prefWidth="108.0" />
    </children>
 </AnchorPane>

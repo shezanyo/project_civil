@@ -1,16 +1,30 @@
 package com.example.civil_engineer_m_system;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class databaseConnection {
-         private static final String databaseName="scematest";
-         private static final String databaseUser="root";
-        private static final String databasePassword="1234";
-        private static final String url="jdbc:mysql://localhost:3306/"+databaseName;
+    public Connection databaseLink;
 
-         public static Connection getConnection() throws SQLException {
-             return DriverManager.getConnection(url, databaseUser, databasePassword);
-         }
+    public Connection getConnection(){
+        String databaseName="scematest";
+        String databaseUser="root";
+        String databasePassword="1234";
+        String url="jdbc:mysql://localhost:3306/"+databaseName;
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            databaseLink= DriverManager.getConnection(url,databaseUser,databasePassword);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return databaseLink;
+    }
+
+
 }
