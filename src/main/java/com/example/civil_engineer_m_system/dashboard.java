@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -30,6 +32,12 @@ public class dashboard {
 
     @FXML
     private TableView<user> tableView;
+    @FXML
+    private TableColumn<user, String> itemcol;
+    @FXML
+    private TableColumn<user, Double> pricecol;
+    @FXML
+    private TableColumn<user, Double> quantitycol;
 
     private databaseConnection dbConnection;
     private ObservableList<user> productList;
@@ -40,7 +48,9 @@ public class dashboard {
         productList = FXCollections.observableArrayList();
         loadTableData();
         tableView.setItems(productList);
-    }
+        itemcol.setCellValueFactory(new PropertyValueFactory<user, String>("item"));
+        pricecol.setCellValueFactory(new PropertyValueFactory<user, Double>("price"));
+        quantitycol.setCellValueFactory(new PropertyValueFactory<user, Double>("quantity"));    }
     public void initializeData(String username) {
             dashName.setText("Welcome, " + username + "!");
         // Add any other initialization logic for the dashboard
@@ -81,7 +91,7 @@ public class dashboard {
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM new_table2");
 
             while (resultSet.next()) {
-                productList.add(new user(resultSet.getString("item"), resultSet.getDouble("price"), resultSet.getInt("quantity")));
+                productList.add(new user(resultSet.getString("item"), resultSet.getDouble("price"), resultSet.getDouble("quantity")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

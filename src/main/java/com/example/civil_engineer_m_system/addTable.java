@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +33,7 @@ public class addTable {
     private TextField priceent;
 
     @FXML
-    private TableColumn<user, Integer> quantitycol;
+    private TableColumn<user, Double> quantitycol;
 
     @FXML
     private TextField quantityent;
@@ -47,6 +48,9 @@ public class addTable {
         productList = FXCollections.observableArrayList();
         loadTableData();
         tableView.setItems(productList);
+        itemcol.setCellValueFactory(new PropertyValueFactory<user, String>("item"));
+        pricecol.setCellValueFactory(new PropertyValueFactory<user, Double>("price"));
+        quantitycol.setCellValueFactory(new PropertyValueFactory<user, Double>("quantity"));
     }
 
     @FXML
@@ -88,7 +92,7 @@ public class addTable {
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM new_table2");
 
             while (resultSet.next()) {
-                productList.add(new user(resultSet.getString("item"), resultSet.getDouble("price"), resultSet.getInt("quantity")));
+                productList.add(new user(resultSet.getString("item"), resultSet.getDouble("price"), resultSet.getDouble("quantity")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

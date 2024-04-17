@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyTableView?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,7 +21,7 @@
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></MFXButton>
-                  <MFXButton layoutY="282.0" onMouseClicked="#button2" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="1st feat" textFill="#6b7e9b" AnchorPane.bottomAnchor="470.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="282.0">
+                  <MFXButton layoutY="282.0" onMouseClicked="#button2" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="Procurement" textFill="#6b7e9b" AnchorPane.bottomAnchor="470.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="282.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></MFXButton>
@@ -40,7 +40,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <MFXButton layoutY="360.0" onMouseClicked="#button3" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="2nd feat" textFill="#6b7e9b" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <MFXButton layoutY="360.0" onMouseClicked="#button3" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="Progress" textFill="#6b7e9b" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -66,14 +66,14 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <MFXLegacyTableView fx:id="tableView" layoutX="26.0" layoutY="334.0" prefHeight="410.0" prefWidth="644.0" stylesheets="@../../../CSS/dashboard.css">
-                     <columns>
-                        <TableColumn prefWidth="203.0" text="Item" />
-                        <TableColumn minWidth="0.0" prefWidth="231.0" text="quantity" />
-                        <TableColumn minWidth="0.0" prefWidth="217.0" text="price" />
-                     </columns>
-                  </MFXLegacyTableView>
-                  <PieChart layoutX="26.0" layoutY="56.0" prefHeight="266.0" prefWidth="358.0" />
+                  <PieChart layoutX="19.0" layoutY="76.0" prefHeight="246.0" prefWidth="366.0" />
+                  <TableView fx:id="tableView" layoutX="19.0" layoutY="336.0" prefHeight="423.0" prefWidth="652.0" stylesheets="@../../../CSS/dashboard.css">
+                    <columns>
+                        <TableColumn fx:id="itemcol" prefWidth="203.0" text="Item" />
+                        <TableColumn fx:id="quantitycol" minWidth="0.0" prefWidth="231.0" text="quantity" />
+                        <TableColumn fx:id="pricecol" minWidth="0.0" prefWidth="217.0" text="price" />
+                    </columns>
+                  </TableView>
                   <MFXButton layoutX="936.0" layoutY="29.0" style="-fx-background-radius: 100;" text="profile" />
                </children></AnchorPane>
          </center>
