@@ -28,7 +28,6 @@ public class login {
 
     public void loginButtonAction(ActionEvent e){
         if(userId.getText().isBlank() == false && passId.getText().isBlank() == false){
-            //loginButton();
             databaseConnection connectNow = new databaseConnection();
             Connection connectDB = connectNow.getConnection();
 
@@ -41,11 +40,10 @@ public class login {
                 while(queryResult.next()){
                     if(queryResult.getInt(1)==1){
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
-                        root = loader.load();
-                        //dashboard dashboardController = loader.getController();
-                        //dashboardController.setUId(Integer.parseInt((userId.getText())));
-                        //System.out.println(Integer.parseInt((userId.getText())));
+                        Parent root = loader.load();
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                        dashboard controller = loader.getController();
+                        controller.initializeData(userId.getText()); // Set dashboard data
                         Scene scene = new Scene(root);
                         stage.setTitle("Dash");
                         stage.setScene(scene);
@@ -56,14 +54,15 @@ public class login {
                     }
 
                 }
-            }catch (Exception ex){
+            } catch (Exception ex){
                 ex.printStackTrace();
             }
-        }
-        else{
+        } else{
             loginInfo.setText("fail");
         }
     }
+
+
     public  void signUpButton(ActionEvent e) throws IOException {
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         root = FXMLLoader.load(this.getClass().getResource("signup.fxml"));

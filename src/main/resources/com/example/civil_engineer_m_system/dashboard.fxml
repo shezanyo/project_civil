@@ -74,7 +74,7 @@
                         <TableColumn fx:id="pricecol" minWidth="0.0" prefWidth="217.0" text="price" />
                     </columns>
                   </TableView>
-                  <MFXButton layoutX="936.0" layoutY="29.0" style="-fx-background-radius: 100;" text="profile" />
+                  <MFXButton layoutX="936.0" layoutY="29.0" onAction="#buttonProfile" style="-fx-background-radius: 100;" text="profile" />
                </children></AnchorPane>
          </center>
       </BorderPane>
