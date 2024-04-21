@@ -121,6 +121,18 @@ public class dashboard {
         stage.setScene(scene);
         stage.show();
     }
+    public void chatButton(ActionEvent e) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("chat.fxml"));
+        Parent root = loader.load();
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        //profile passId = loader.getController();
+        //passId.setUniqueId(uIdProfile);
+        //passId.loadData(); // Load profile data
+        Scene scene = new Scene(root);
+        stage.setTitle("Chat");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 }

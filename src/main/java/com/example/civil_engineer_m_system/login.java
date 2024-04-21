@@ -27,7 +27,7 @@ public class login {
     Parent root;
 
     public void loginButtonAction(ActionEvent e){
-        if(userId.getText().isBlank() == false && passId.getText().isBlank() == false){
+        if(!userId.getText().isBlank() && !passId.getText().isBlank()){
             databaseConnection connectNow = new databaseConnection();
             Connection connectDB = connectNow.getConnection();
 
@@ -44,10 +44,13 @@ public class login {
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         dashboard controller = loader.getController();
                         controller.initializeData(userId.getText()); // Set dashboard data
+
+
                         Scene scene = new Scene(root);
                         stage.setTitle("Dash");
                         stage.setScene(scene);
                         stage.show();
+
                     }
                     else{
                         loginInfo.setText("wrong cred");
@@ -55,6 +58,8 @@ public class login {
 
                 }
             } catch (Exception ex){
+                ex.printStackTrace();
+                System.err.println("Error starting the server: " + ex.getMessage());
                 ex.printStackTrace();
             }
         } else{
