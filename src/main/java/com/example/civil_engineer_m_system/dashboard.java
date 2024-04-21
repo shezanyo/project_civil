@@ -128,6 +128,9 @@ public class dashboard {
         //profile passId = loader.getController();
         //passId.setUniqueId(uIdProfile);
         //passId.loadData(); // Load profile data
+
+        client clientController = loader.getController();
+        clientController.connectToServer(); // initiate connection to server
         Scene scene = new Scene(root);
         stage.setTitle("Chat");
         stage.setScene(scene);
