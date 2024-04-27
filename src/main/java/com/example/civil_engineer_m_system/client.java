@@ -21,6 +21,12 @@ public class client {
 
     private PrintWriter out;
     private BufferedReader in;
+    private String username;
+
+    public void initData(String username) {
+        this.username = username;
+        connectToServer(); // initiate connection to server
+    }
 
     public void initialize() {
         new Thread(this::connectToServer).start();
@@ -28,7 +34,7 @@ public class client {
 
     void connectToServer() {
         try {
-            Socket socket = new Socket("localhost", 12345);
+            Socket socket = new Socket("192.168.0.8", 12345);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -57,8 +63,8 @@ public class client {
     }
 
     @FXML
-    void sendMessage() {
-        String message = messageTextField.getText();
+    private void sendMessage() {
+        String message = username + ": " + messageTextField.getText();
         out.println(message);
         messageTextField.clear();
         System.out.println("Sent: " + message); // Log sent messages to terminal

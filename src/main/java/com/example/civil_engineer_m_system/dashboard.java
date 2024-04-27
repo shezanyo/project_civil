@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -35,6 +36,15 @@ public class dashboard {
     Stage stage;
     Parent root;
     private int uIdProfile;
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     @FXML
     private TableView<user> tableView;
@@ -60,10 +70,21 @@ public class dashboard {
         quantitycol.setCellValueFactory(new PropertyValueFactory<user, Double>("quantity"));
     }
 
-    public void initializeData(String username) {
+    public void initializeData(String username) throws SQLException {
 
-        dashName.setText("Welcome, " + username + "!");
-        uIdProfile = Integer.parseInt(username);
+        databaseConnection connectNow = new databaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String query = "SELECT firstname FROM new_table WHERE id = ?;";
+
+        PreparedStatement statement = connectDB.prepareStatement(query);
+        statement.setInt(1, Integer.parseInt(username));
+
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            setName(resultSet.getString("firstname"));
+            dashName.setText("Welcome, " + name + "!");
+        }
     }
 
 
@@ -121,21 +142,25 @@ public class dashboard {
         stage.setScene(scene);
         stage.show();
     }
-    public void chatButton(ActionEvent e) throws IOException, SQLException {
+    @FXML
+    void chatButton(ActionEvent e) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("chat.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        //profile passId = loader.getController();
-        //passId.setUniqueId(uIdProfile);
-        //passId.loadData(); // Load profile data
 
+        // Get the username from the dashboard
+        String username = getName();
+
+        // Pass the username to the client
         client clientController = loader.getController();
-        clientController.connectToServer(); // initiate connection to server
+        clientController.initData(username);
+
         Scene scene = new Scene(root);
         stage.setTitle("Chat");
         stage.setScene(scene);
         stage.show();
     }
+
 
 
 }
