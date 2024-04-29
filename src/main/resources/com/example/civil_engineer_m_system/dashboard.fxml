@@ -56,18 +56,22 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </MFXButton>
+                  <MFXButton layoutX="69.0" layoutY="665.0" onAction="#buttonProfile" prefHeight="47.0" prefWidth="98.0" style="-fx-background-radius: 100;" text="profile">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></MFXButton>
                </children>
             </AnchorPane>
          </left>
          <center>
             <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="dashName" layoutX="26.0" layoutY="26.0" prefHeight="30.0" prefWidth="319.0" text="Welcome Username" textFill="#6b7e9b">
+                  <Label fx:id="dashName" layoutX="691.0" layoutY="28.0" prefHeight="30.0" prefWidth="319.0" text="Welcome Username" textFill="#6b7e9b">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <PieChart layoutX="19.0" layoutY="76.0" prefHeight="246.0" prefWidth="366.0" />
+                  <PieChart layoutX="26.0" layoutY="58.0" prefHeight="246.0" prefWidth="366.0" />
                   <TableView fx:id="tableView" layoutX="19.0" layoutY="336.0" prefHeight="423.0" prefWidth="652.0" stylesheets="@../../../CSS/dashboard.css">
                     <columns>
                         <TableColumn fx:id="itemcol" prefWidth="203.0" text="Item" />
@@ -75,8 +79,7 @@
                         <TableColumn fx:id="pricecol" minWidth="0.0" prefWidth="217.0" text="price" />
                     </columns>
                   </TableView>
-                  <MFXButton layoutX="936.0" layoutY="29.0" onAction="#buttonProfile" style="-fx-background-radius: 100;" text="profile" />
-                  <Button layoutX="884.0" layoutY="637.0" mnemonicParsing="false" onAction="#chatButton" text="chat" />
+                  <Button layoutX="911.0" layoutY="669.0" mnemonicParsing="false" onAction="#chatButton" prefHeight="61.0" prefWidth="70.0" text="chat" />
                </children></AnchorPane>
          </center>
       </BorderPane>
