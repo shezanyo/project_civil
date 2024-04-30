@@ -86,10 +86,15 @@ public class dashboard {
             dashName.setText("Welcome, " + name + "!");
         }
     }
+    public void refreshTable() {
+        loadTableData();
+        tableView.refresh(); // Refresh the TableView to reflect the changes
+    }
 
 
     @FXML
     void button1(MouseEvent event) {
+        refreshTable();
         bp.setCenter(ap);
     }
 
