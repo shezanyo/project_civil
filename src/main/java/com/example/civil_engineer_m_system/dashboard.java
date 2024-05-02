@@ -36,6 +36,11 @@ public class dashboard {
     Stage stage;
     Parent root;
     private int uIdProfile;
+
+    public void setuIdProfile(int uIdProfile) {
+        this.uIdProfile = uIdProfile;
+    }
+
     private String name;
 
     public void setName(String name) {
@@ -72,6 +77,7 @@ public class dashboard {
 
     public void initializeData(String username) throws SQLException {
 
+        setuIdProfile(Integer.parseInt(username));
         databaseConnection connectNow = new databaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -79,6 +85,7 @@ public class dashboard {
 
         PreparedStatement statement = connectDB.prepareStatement(query);
         statement.setInt(1, Integer.parseInt(username));
+
 
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
@@ -140,7 +147,7 @@ public class dashboard {
         Parent root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         profile passId = loader.getController();
-        passId.setUniqueId(uIdProfile);
+        passId.setUniqueId(uIdProfile); // Set the uniqueId
         passId.loadData(); // Load profile data
         Scene scene = new Scene(root);
         stage.setTitle("Profile");
@@ -162,6 +169,17 @@ public class dashboard {
 
         Scene scene = new Scene(root);
         stage.setTitle("Chat");
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void logoutButtonAction(ActionEvent event) throws IOException {
+        // Load the login page
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }

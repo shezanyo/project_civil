@@ -18,13 +18,18 @@
          <left>
             <AnchorPane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #f2f2f9;" BorderPane.alignment="CENTER">
                <children>
-                  <MFXButton depthLevel="LEVEL0" layoutX="-8.0" layoutY="207.0" onMouseClicked="#button1" prefHeight="48.0" prefWidth="260.0" rippleAnimateBackground="false" rippleBackgroundOpacity="30.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="Dashboard" textFill="#6b7e9b" AnchorPane.bottomAnchor="545.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="207.0">
+                  <Label layoutX="94.0" layoutY="704.0" prefHeight="25.0" prefWidth="62.0" text="Log out!" textFill="#0d99fa">
                      <font>
                         <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <MFXButton depthLevel="LEVEL0" layoutX="-8.0" layoutY="207.0" onMouseClicked="#button1" prefHeight="48.0" prefWidth="260.0" rippleAnimateBackground="false" rippleBackgroundOpacity="30.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="Dashboard" textFill="#6b7e9b" AnchorPane.bottomAnchor="545.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="207.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
                      </font></MFXButton>
                   <MFXButton layoutY="282.0" onMouseClicked="#button2" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="Procurement" textFill="#6b7e9b" AnchorPane.bottomAnchor="470.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="282.0">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font></MFXButton>
                   <ImageView fitHeight="103.0" fitWidth="67.0" layoutX="84.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -43,7 +48,7 @@
                   </Label>
                   <MFXButton layoutY="360.0" onMouseClicked="#button3" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="Progress" textFill="#6b7e9b" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </MFXButton>
                   <MFXButton layoutX="1.0" layoutY="443.0" onMouseClicked="#button2" prefHeight="48.0" prefWidth="219.0" rippleColor="WHITE" style="-fx-background-color: #f2f2f9;" text="3rd feat" textFill="#6b7e9b" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
@@ -56,17 +61,18 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </MFXButton>
-                  <MFXButton layoutX="69.0" layoutY="665.0" onAction="#buttonProfile" prefHeight="47.0" prefWidth="98.0" style="-fx-background-radius: 100;" text="profile">
+                  <MFXButton layoutX="76.0" layoutY="640.0" onAction="#buttonProfile" prefHeight="47.0" prefWidth="98.0" style="-fx-background-radius: 100; -fx-background-color: #6b7e9b;" text="profile" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font></MFXButton>
+                  <Button layoutX="96.0" layoutY="704.0" mnemonicParsing="false" onAction="#logoutButtonAction" opacity="0.0" prefHeight="4.0" prefWidth="59.0" text="Button" />
                </children>
             </AnchorPane>
          </left>
          <center>
-            <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f2f2f9;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="dashName" layoutX="691.0" layoutY="28.0" prefHeight="30.0" prefWidth="319.0" text="Welcome Username" textFill="#6b7e9b">
+                  <Label fx:id="dashName" layoutX="709.0" layoutY="28.0" prefHeight="30.0" prefWidth="319.0" text="Welcome Username" textFill="#6b7e9b">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -79,7 +85,15 @@
                         <TableColumn fx:id="pricecol" minWidth="0.0" prefWidth="217.0" text="price" />
                     </columns>
                   </TableView>
-                  <Button layoutX="911.0" layoutY="669.0" mnemonicParsing="false" onAction="#chatButton" prefHeight="61.0" prefWidth="70.0" text="chat" />
+                  <ImageView fitHeight="60.0" fitWidth="70.0" layoutX="911.0" layoutY="675.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../LOGO/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="911.0" layoutY="669.0" mnemonicParsing="false" onAction="#chatButton" opacity="0.0" prefHeight="60.0" prefWidth="70.0" text="chat">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Button>
                </children></AnchorPane>
          </center>
       </BorderPane>

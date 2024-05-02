@@ -29,7 +29,9 @@ public class profile {
 
     public void setUniqueId(int uniqueId) {
         this.uniqueId = uniqueId;
+        System.out.println("Unique ID set: " + uniqueId); // Add this line to verify if the uniqueId is correctly set
     }
+
 
     public void loadData() throws SQLException {
         System.out.println("Loading data for ID: " + uniqueId);
