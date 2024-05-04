@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="728.0" prefWidth="1072.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.todoList">
    <children>
-      <PieChart fx:id="pieChart" layoutX="14.0" layoutY="14.0" prefHeight="256.0" prefWidth="319.0" />
-      <CheckBox fx:id="tickingCheckBox" layoutX="14.0" layoutY="291.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
+      <CheckBox fx:id="task1" layoutX="14.0" layoutY="291.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
+      <CheckBox fx:id="task4" layoutX="14.0" layoutY="473.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
+      <CheckBox fx:id="task3" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
+      <CheckBox fx:id="task2" layoutX="14.0" layoutY="345.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
+      <ProgressBar fx:id="progressBar" layoutX="26.0" layoutY="102.0" prefHeight="39.0" prefWidth="512.0" progress="0.0" />
    </children>
 </AnchorPane>

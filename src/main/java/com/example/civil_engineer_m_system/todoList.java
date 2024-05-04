@@ -1,34 +1,42 @@
 package com.example.civil_engineer_m_system;
 
 import javafx.fxml.FXML;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ProgressBar;
 
 public class todoList {
+    @FXML
+    private CheckBox task1;
 
     @FXML
-    private CheckBox tickingCheckBox;
+    private CheckBox task2;
 
     @FXML
-    private PieChart pieChart;
+    private CheckBox task3;
+
+    @FXML
+    private CheckBox task4;
+
+    @FXML
+    private ProgressBar progressBar;
 
     @FXML
     public void initialize() {
-        // Initialize the pie chart with an empty data
-        PieChart.Data slice = new PieChart.Data("Unchecked", 0);
-        pieChart.getData().add(slice);
+        // Add listener to checkboxes
+        task1.setOnAction(event -> updateProgress());
+        task2.setOnAction(event -> updateProgress());
+        task3.setOnAction(event -> updateProgress());
+        task4.setOnAction(event -> updateProgress());
+    }
 
-        // Listener for the tickingCheckBox to update the pie chart
-        tickingCheckBox.setOnAction(event -> {
-            if (tickingCheckBox.isSelected()) {
-                // If checkbox is checked, fill the pie chart to 100%
-                slice.setPieValue(100);
-                slice.setName("Checked");
-            } else {
-                // If checkbox is unchecked, reset the pie chart
-                slice.setPieValue(0);
-                slice.setName("Unchecked");
-            }
-        });
+    private void updateProgress() {
+        double completedTasks = 0;
+        if (task1.isSelected()) completedTasks++;
+        if (task2.isSelected()) completedTasks++;
+        if (task3.isSelected()) completedTasks++;
+        if (task4.isSelected()) completedTasks++;
+
+        double progress = completedTasks / 4.0;
+        progressBar.setProgress(progress);
     }
 }
