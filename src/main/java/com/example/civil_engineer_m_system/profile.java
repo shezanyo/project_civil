@@ -26,12 +26,7 @@ public class profile {
 
     private int uniqueId;
 
-    @FXML
-    public void initialize() throws SQLException {
-        System.out.println("Initializing profile controller...");
-        loadData();
-        System.out.println(uniqueId);
-    }
+
 
     public void setUniqueId(int uniqueId) {
         this.uniqueId = uniqueId;
@@ -39,8 +34,8 @@ public class profile {
     }
 
 
-    public void loadData() throws SQLException {
-        System.out.println("Loading data for ID: " + uniqueId);
+    public void loadData(int uid) throws SQLException {
+        System.out.println("Loading data for ID: " + uid);
 
         databaseConnection connectNow = new databaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -48,7 +43,7 @@ public class profile {
         String query = "SELECT id, firstname, lastname FROM new_table WHERE id = ?;";
 
         PreparedStatement statement = connectDB.prepareStatement(query);
-        statement.setInt(1, uniqueId);
+        statement.setInt(1, uid);
 
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {

@@ -150,9 +150,8 @@ public class dashboard {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        profile passId = loader.getController();
-        passId.setUniqueId(uIdProfile); // Set the uniqueId
-        passId.loadData(); // Load profile data
+        profile controller = loader.getController();
+        controller.loadData(uIdProfile); // Set dashboard data
         Scene scene = new Scene(root);
         stage.setTitle("Profile");
         stage.setScene(scene);

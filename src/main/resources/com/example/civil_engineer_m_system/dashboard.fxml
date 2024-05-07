@@ -84,7 +84,7 @@
                         <Image url="@../../../LOGO/logo.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="911.0" layoutY="669.0" mnemonicParsing="false" onAction="#chatButton" opacity="0.0" prefHeight="60.0" prefWidth="70.0" text="chat">
+                  <Button layoutX="910.0" layoutY="675.0" mnemonicParsing="false" onAction="#chatButton" opacity="0.0" prefHeight="60.0" prefWidth="70.0" text="chat">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Button>
