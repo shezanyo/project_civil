@@ -18,8 +18,8 @@
          </columns>
       </TableView>
       <MFXTextField fx:id="itement" layoutX="786.0" layoutY="70.0" prefHeight="19.0" prefWidth="275.0" />
-      <MFXTextField fx:id="priceent" layoutX="786.0" layoutY="260.0" prefHeight="49.0" prefWidth="275.0" />
-      <MFXTextField fx:id="quantityent" layoutX="786.0" layoutY="169.0" prefHeight="49.0" prefWidth="275.0" />
+      <MFXTextField fx:id="quantityent" layoutX="786.0" layoutY="260.0" prefHeight="49.0" prefWidth="275.0" />
+      <MFXTextField fx:id="priceent" layoutX="786.0" layoutY="169.0" prefHeight="49.0" prefWidth="275.0" />
       <MFXButton layoutX="786.0" layoutY="355.0" onAction="#addItemToDatabase" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Add" textFill="#1c3c6f">
          <font>
             <Font name="System Bold" size="12.0" />
