@@ -3,13 +3,34 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="728.0" prefWidth="1072.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.todoList">
+<AnchorPane prefHeight="728.0" prefWidth="1072.0" style="-fx-background-color: #f2f2f9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.todoList">
    <children>
-      <CheckBox fx:id="task1" layoutX="14.0" layoutY="291.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
-      <CheckBox fx:id="task4" layoutX="14.0" layoutY="473.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
-      <CheckBox fx:id="task3" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
-      <CheckBox fx:id="task2" layoutX="14.0" layoutY="345.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="1st task" />
-      <ProgressBar fx:id="progressBar" layoutX="26.0" layoutY="102.0" prefHeight="39.0" prefWidth="512.0" progress="0.0" />
+      <AnchorPane layoutX="14.0" layoutY="164.0" prefHeight="391.0" prefWidth="703.0" style="-fx-background-color: #e5e6f6;">
+         <children>
+            <CheckBox fx:id="task1" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="Piling Done" textFill="#6a7c99">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="task2" layoutX="14.0" layoutY="122.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="Structure Done" textFill="#6a7c99">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="task3" layoutX="14.0" layoutY="195.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="Wiring Done" textFill="#6a7c99">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="task4" layoutX="14.0" layoutY="266.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="Plumbing Done" textFill="#6a7c99">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </AnchorPane>
+      <ProgressBar fx:id="progressBar" layoutX="24.0" layoutY="62.0" prefHeight="39.0" prefWidth="512.0" progress="0.0" style="-fx-background-color: #e5e6f6;" />
    </children>
 </AnchorPane>

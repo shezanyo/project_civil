@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -25,5 +26,10 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
+      <MFXButton layoutX="39.0" layoutY="24.0" onAction="#goBackToDashboard" prefHeight="10.0" prefWidth="54.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Back" textFill="#1c3c6f">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </MFXButton>
    </children>
 </AnchorPane>

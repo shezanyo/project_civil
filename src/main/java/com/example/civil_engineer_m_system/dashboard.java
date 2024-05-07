@@ -114,6 +114,10 @@ public class dashboard {
     void button3(MouseEvent event) throws IOException {
         loadpage("todoList");
     }
+    @FXML
+    void button4(MouseEvent event) throws IOException {
+        loadpage("regulation");
+    }
 
 
     private void loadpage(String page) throws IOException {

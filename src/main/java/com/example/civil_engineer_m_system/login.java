@@ -53,7 +53,7 @@ public class login {
 
                     }
                     else{
-                        loginInfo.setText("wrong cred");
+                        loginInfo.setText("wrong credential");
                     }
 
                 }

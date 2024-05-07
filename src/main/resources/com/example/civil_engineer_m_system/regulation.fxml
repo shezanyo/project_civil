@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f2f2f9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.Regulation">
+   <children>
+      <TextArea editable="false" layoutX="9.0" layoutY="52.0" prefHeight="541.0" prefWidth="783.0" style="-fx-background-color: #e5e6f6;" text="Building Construction Act, 1952:&#10;&#10;The Building Construction Act, 1952 aims to prevent haphazard construction of buildings and excavation of tanks that might &#10;interfere with the planning of certain areas in Bangladesh. It provides guidelines for proper construction practices and land &#10;use. Some key provisions include:&#10;&#10;1.Restriction on construction of buildings and excavation of tanks.&#10;2.Direction for removal of unauthorized constructions.&#10;3.Restrictions on cutting hills.&#10;4.Power of removal of temporary buildings.&#10;5.Eviction of occupiers.&#10;6.Application for building sanction.&#10;7.Cancellation of sanction for breach of terms and conditions.&#10;8.Entry into premises.&#10;9.Power of seizure and arrest without a warrant.&#10;10.Penalties for violations.&#10;11.Appeal mechanisms.">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
