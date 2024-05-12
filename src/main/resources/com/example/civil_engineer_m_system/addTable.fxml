@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="710.0" prefWidth="1186.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.addTable">
    <children>
-      <TableView fx:id="tableView" layoutX="24.0" layoutY="14.0" prefHeight="589.0" prefWidth="656.0" stylesheets="@../../../CSS/dashboard.css">
+      <TableView fx:id="tableView" editable="true" layoutX="24.0" layoutY="14.0" prefHeight="589.0" prefWidth="656.0" stylesheets="@../../../CSS/dashboard.css">
          <columns>
             <TableColumn fx:id="itemcol" prefWidth="203.0" text="Item" />
             <TableColumn fx:id="quantitycol" minWidth="0.0" prefWidth="231.0" text="quantity" />

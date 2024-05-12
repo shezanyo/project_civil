@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.DoubleStringConverter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,6 +61,29 @@ public class addTable {
                 // Disable delete button when no row is selected
                 deleteButton.setDisable(true);
             }
+        });
+        itemcol.setCellValueFactory(new PropertyValueFactory<user, String>("item"));
+        itemcol.setCellFactory(TextFieldTableCell.forTableColumn()); // Make the item column editable
+        itemcol.setOnEditCommit(event -> {
+            user user = event.getRowValue();
+            user.setItem(event.getNewValue());
+            updateItem(user);
+        });
+
+        pricecol.setCellValueFactory(new PropertyValueFactory<user, Double>("price"));
+        pricecol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter())); // Make the price column editable
+        pricecol.setOnEditCommit(event -> {
+            user user = event.getRowValue();
+            user.setPrice(event.getNewValue());
+            updateItem(user);
+        });
+
+        quantitycol.setCellValueFactory(new PropertyValueFactory<user, Double>("quantity"));
+        quantitycol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter())); // Make the quantity column editable
+        quantitycol.setOnEditCommit(event -> {
+            user user = event.getRowValue();
+            user.setQuantity(event.getNewValue());
+            updateItem(user);
         });
     }
 
@@ -138,6 +163,26 @@ public class addTable {
             while (resultSet.next()) {
                 productList.add(new user(resultSet.getString("item"), resultSet.getDouble("quantity"), resultSet.getDouble("price")));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    private void updateItem(user user) {
+        try {
+            Connection connection = dbConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement("UPDATE new_table2 SET item = ?, price = ?, quantity = ? WHERE item = ?");
+            statement.setString(1, user.getItem());
+            statement.setDouble(2, user.getPrice());
+            statement.setDouble(3, user.getQuantity());
+            statement.setString(4, user.getItem()); // Assuming item is unique
+            statement.executeUpdate();
+
+            // Optionally, display a success message
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Success");
+            successAlert.setHeaderText(null);
+            successAlert.setContentText("Item updated successfully.");
+            successAlert.showAndWait();
         } catch (SQLException e) {
             e.printStackTrace();
         }
