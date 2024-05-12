@@ -139,7 +139,7 @@ public class dashboard {
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM new_table2");
 
             while (resultSet.next()) {
-                productList.add(new user(resultSet.getString("item"), resultSet.getDouble("price"), resultSet.getDouble("quantity")));
+                productList.add(new user(resultSet.getString("item"), resultSet.getDouble("quantity"), resultSet.getDouble("price")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

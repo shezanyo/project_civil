@@ -17,26 +17,26 @@
             <TableColumn fx:id="pricecol" minWidth="0.0" prefWidth="217.0" text="price" />
          </columns>
       </TableView>
-      <MFXTextField fx:id="itement" layoutX="786.0" layoutY="70.0" prefHeight="19.0" prefWidth="275.0" />
-      <MFXTextField fx:id="quantityent" layoutX="786.0" layoutY="260.0" prefHeight="49.0" prefWidth="275.0" />
-      <MFXTextField fx:id="priceent" layoutX="786.0" layoutY="169.0" prefHeight="49.0" prefWidth="275.0" />
-      <MFXButton layoutX="786.0" layoutY="355.0" onAction="#addItemToDatabase" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Add" textFill="#1c3c6f">
+      <MFXTextField fx:id="itement" layoutX="730.0" layoutY="73.0" prefHeight="19.0" prefWidth="275.0" />
+      <MFXTextField fx:id="quantityent" layoutX="730.0" layoutY="168.0" prefHeight="49.0" prefWidth="275.0" />
+      <MFXTextField fx:id="priceent" layoutX="730.0" layoutY="274.0" prefHeight="49.0" prefWidth="275.0" />
+      <MFXButton layoutX="730.0" layoutY="358.0" onAction="#addItemToDatabase" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Add" textFill="#1c3c6f">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></MFXButton>
-      <Label layoutX="786.0" layoutY="36.0" text="Item" textFill="#6a7c99">
+      <Label layoutX="730.0" layoutY="39.0" text="Item" textFill="#6a7c99">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label layoutX="781.0" layoutY="130.0" text="Quantity" textFill="#6a7c99">
+      <Label layoutX="725.0" layoutY="133.0" text="Quantity" textFill="#6a7c99">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Label layoutX="785.0" layoutY="230.0" text="Price" textFill="#6a7c99">
+      <Label layoutX="729.0" layoutY="233.0" text="Price" textFill="#6a7c99">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <MFXButton fx:id="deleteButton" layoutX="786.0" layoutY="431.0" onAction="#deleteSelectedItem" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Delete" textFill="#1c3c6f">
+      <MFXButton fx:id="deleteButton" layoutX="730.0" layoutY="434.0" onAction="#deleteSelectedItem" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Delete" textFill="#1c3c6f">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
