@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,11 +18,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +36,10 @@ public class dashboard {
     private BorderPane bp;
     @FXML
     private Label dashName;
+    @FXML
+    private ProgressBar pbr;
+    private Properties properties;
+    private final String PROPERTIES_FILE = "todo.properties";
     Stage stage;
     Parent root;
     private int uIdProfile;
@@ -73,6 +80,9 @@ public class dashboard {
         itemcol.setCellValueFactory(new PropertyValueFactory<user, String>("item"));
         pricecol.setCellValueFactory(new PropertyValueFactory<user, Double>("price"));
         quantitycol.setCellValueFactory(new PropertyValueFactory<user, Double>("quantity"));
+        properties = new Properties();
+        loadProgress();
+        updateProgressBar();
     }
 
     public void initializeData(String username) throws SQLException {
@@ -101,7 +111,9 @@ public class dashboard {
 
     @FXML
     void button1(MouseEvent event) {
+        loadProgress();
         refreshTable();
+        updateProgressBar();
         bp.setCenter(ap);
     }
 
@@ -187,6 +199,28 @@ public class dashboard {
         stage.show();
     }
 
+    private void loadProgress() {
+        try (FileInputStream fis = new FileInputStream(PROPERTIES_FILE)) {
+            properties.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void updateProgressBar() {
+        double progress = calculateProgress();
+        pbr.setProgress(progress);
+    }
+
+    private double calculateProgress() {
+        double completedTasks = 0;
+        // Count completed tasks
+        if (Boolean.parseBoolean(properties.getProperty("task1", "false"))) completedTasks++;
+        if (Boolean.parseBoolean(properties.getProperty("task2", "false"))) completedTasks++;
+        if (Boolean.parseBoolean(properties.getProperty("task3", "false"))) completedTasks++;
+        if (Boolean.parseBoolean(properties.getProperty("task4", "false"))) completedTasks++;
+        // Calculate progress
+        return completedTasks / 4.0;
+    }
 
 }
