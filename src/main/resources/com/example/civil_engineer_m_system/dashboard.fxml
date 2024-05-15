@@ -89,7 +89,7 @@
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Button>
-                  <TextArea layoutX="25.0" layoutY="621.0" prefHeight="152.0" prefWidth="706.0" />
+                  <TextArea fx:id="tAreal" layoutX="25.0" layoutY="621.0" prefHeight="152.0" prefWidth="706.0" />
                   <Label layoutX="27.0" layoutY="588.0" text="Notes" textFill="#6a7c99">
                      <font>
                         <Font name="System Bold" size="14.0" />

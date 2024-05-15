@@ -8,18 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,11 +34,14 @@ public class dashboard {
     private Label dashName;
     @FXML
     private ProgressBar pbr;
+    @FXML
+    private TextArea tAreal;
     private Properties properties;
     private final String PROPERTIES_FILE = "todo.properties";
     Stage stage;
     Parent root;
     private int uIdProfile;
+    private final String TEXT_FILE = "saved_text.txt";
 
     public void setuIdProfile(int uIdProfile) {
         this.uIdProfile = uIdProfile;
@@ -83,6 +82,7 @@ public class dashboard {
         properties = new Properties();
         loadProgress();
         updateProgressBar();
+        loadSavedText();
     }
 
     public void initializeData(String username) throws SQLException {
@@ -115,6 +115,7 @@ public class dashboard {
         refreshTable();
         updateProgressBar();
         bp.setCenter(ap);
+        saveTextToFile();
     }
 
     @FXML
@@ -222,5 +223,25 @@ public class dashboard {
         // Calculate progress
         return completedTasks / 4.0;
     }
+    private void loadSavedText() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(TEXT_FILE))) {
+            StringBuilder text = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                text.append(line).append("\n");
+            }
+            tAreal.setText(text.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void saveTextToFile() {
+        String textToSave = tAreal.getText();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(TEXT_FILE))) {
+            writer.write(textToSave);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
