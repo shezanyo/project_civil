@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.profile">
+   <children>
+      <AnchorPane layoutX="30.0" layoutY="33.0" prefHeight="324.0" prefWidth="542.0" style="-fx-background-radius: 50; -fx-background-color: #f2f2f9;">
+         <children>
+            <Label fx:id="id" layoutX="206.0" layoutY="87.0" text="Label" />
+            <Label fx:id="firstName" layoutX="202.0" layoutY="145.0" text="Label" />
+            <Label fx:id="lastName" layoutX="202.0" layoutY="203.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="99.0" layoutY="116.0" prefHeight="20.0" prefWidth="81.0" text="Id               :" textFill="#6a7c99">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="99.0" layoutY="235.0" prefHeight="20.0" prefWidth="81.0" text="Last name :" textFill="#6a7c99">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="99.0" layoutY="172.0" prefHeight="17.0" prefWidth="91.0" text="First Name :" textFill="#6a7c99">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <MFXButton layoutX="39.0" layoutY="24.0" onAction="#goBackToDashboard" prefHeight="10.0" prefWidth="54.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Back" textFill="#1c3c6f">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </MFXButton>
+   </children>
+</AnchorPane>

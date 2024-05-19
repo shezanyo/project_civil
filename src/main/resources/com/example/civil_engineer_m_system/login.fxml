@@ -4,6 +4,8 @@
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -26,7 +28,24 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="7.0" layoutY="-1.0" prefHeight="400.0" prefWidth="195.0" style="-fx-background-color: #e5e6f6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="7.0" layoutY="-1.0" prefHeight="400.0" prefWidth="195.0" style="-fx-background-color: #e5e6f6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="139.0" fitWidth="179.0" layoutX="52.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../LOGO/mainLogo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="26.0" layoutY="251.0" prefHeight="25.0" prefWidth="152.0" text="Building Construction " textFill="#6b7e9b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="276.0" prefHeight="25.0" prefWidth="152.0" text="Management System" textFill="#6b7e9b">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
       <MFXButton layoutX="356.0" layoutY="302.0" onAction="#loginButtonAction" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="login" textFill="#1c3c6f">
          <font>
             <Font name="System Bold" size="14.0" />

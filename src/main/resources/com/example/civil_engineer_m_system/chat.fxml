@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f2f2f9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civil_engineer_m_system.client">
+    <children>
+        <TextArea fx:id="chatTextArea" editable="false" layoutX="29.0" layoutY="75.0" prefHeight="214.0" prefWidth="369.0" />
+        <TextField fx:id="messageTextField" layoutX="29.0" layoutY="335.0" prefHeight="25.0" prefWidth="369.0" />
+      <MFXButton layoutX="414.0" layoutY="331.0" onAction="#sendMessage" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Send" textFill="#1c3c6f">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </MFXButton>
+      <MFXButton layoutX="29.0" layoutY="14.0" onAction="#goToDashboard" prefHeight="10.0" prefWidth="54.0" style="-fx-background-color: #e5e6f6; -fx-background-radius: 10;" text="Back" textFill="#1c3c6f">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </MFXButton>
+    </children>
+</AnchorPane>

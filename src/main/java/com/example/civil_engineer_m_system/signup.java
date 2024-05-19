@@ -45,7 +45,7 @@ public class signup {
             try{
                 Statement statement=connectDB.createStatement();
                 statement.executeUpdate(insertTogether);
-                errorMsg.setText("set man");
+                errorMsg.setText("Registered!");
             }catch (Exception ex){
                 ex.printStackTrace();
             }
